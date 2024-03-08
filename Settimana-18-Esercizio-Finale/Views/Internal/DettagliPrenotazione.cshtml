@@ -1,0 +1,60 @@
+﻿@model List<Settimana_18_Esercizio_Finale.Models.Servizio>
+@{
+    ViewBag.Title = "DettagliPrenotazione";
+    int NumeroStanza = Convert.ToInt32(TempData["NumeroStanza"]);
+    DateTime Inizio_Soggiorno = Convert.ToDateTime(TempData["Inizio_Soggiorno"]);
+    DateTime Fine_Soggiorno = Convert.ToDateTime(TempData["Fine_Soggiorno"]);
+    double Tariffa = Convert.ToDouble(TempData["Tariffa"]);
+    double Caparra = Convert.ToDouble(TempData["Caparra"]);
+    double Importo = Convert.ToDouble(TempData["importo"]);
+}
+
+<h2>Dettagli Prenotazione</h2>
+
+<div class="mt-3">
+    <div class="d-flex">
+        <p class="m-0">Stanza Numero:</p>
+        <p class="m-0 fw-semibold ms-auto">@NumeroStanza</p>
+    </div>
+    <div class="d-flex">
+        <p class="m-0">Periodo:</p>
+        <p class="m-0 fw-semibold ms-auto">dal @Inizio_Soggiorno.ToString() al @Fine_Soggiorno.ToString()</p>
+    </div>
+    <div class="d-flex">
+        <p class="m-0">Tariffa:</p>
+        <p class="m-0 fw-semibold ms-auto">@Tariffa €</p>
+    </div>
+</div>
+
+<div class="py-3 border-top border-bottom">
+    <h5>Servizi</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tipo</th>
+                <th scope="col">Quantità</th>
+                <th scope="col">Prezzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Settimana_18_Esercizio_Finale.Models.Servizio s in Model)
+            {
+                <tr>
+                    <td>@s.Tipo</td>
+                    <td>@s.Quantità</td>
+                    <td>@s.Prezzo €</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex">
+    <p class="m-0 ">Caparra:</p>
+    <p class="ms-auto fw-semibold m-0 ">- @Caparra €</p>
+</div>
+<div class="d-flex">
+    <p class="m-0 fs-4">Importo da pagare:</p>
+    <p class="ms-auto fw-semibold m-0 fs-4">@Importo €</p>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    string Info = null;
+
+    if (TempData.ContainsKey("Info")) {
+        Info = TempData["Info"].ToString(); }
+}
+
+<h2 class="fw-light">Hotel MiraLago</h2>
+
+@if (Info != null)
+{
+    <div class="alert alert-success" role="alert">
+        @Info
+    </div>
+}
+
+<div class="my-4">
+    @Html.ActionLink("Checkout", "Checkout", "Internal", new { area = "" }, new { @class = "btn btn-primary" })
+
+</div>
+
+<div class="py-3 mt-4 border-top">
+    @Html.ActionLink("Crea Nuovo Cliente ->", "NuovoCliente", "Internal", new { area = "" }, new { @class = "btn btn-outline-primary" })
+</div>
+<div class="py-3 border-top">
+    @Html.ActionLink("Crea Nuova Camera ->", "NuovaCamera", "Internal", new { area = "" }, new { @class = "btn btn-outline-primary" })
+</div>
+<div class="py-3 border-top">
+    @Html.ActionLink("Crea Nuovo Dipendente ->", "NuovoDipendente", "Internal", new { area = "" }, new { @class = "btn btn-outline-primary" })
+</div>
+<div class="py-3 border-top">
+    @Html.ActionLink("Crea Nuova Prenotazione ->", "NuovaPrenotazione", "Internal", new { area = "" }, new { @class = "btn btn-outline-primary" })
+</div>
+<div class="py-3 border-top">
+    @Html.ActionLink("Crea Nuovo Servizio ->", "NuovoServizio", "Internal", new { area = "" }, new { @class = "btn btn-outline-primary" })
+</div>
